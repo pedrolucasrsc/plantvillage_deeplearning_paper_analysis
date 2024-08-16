@@ -16,7 +16,7 @@ module add caffe
 module add cuda
 echo STARTING AT `date`
 
-caffe train -solver solver.prototxt -weights /home/mohanty/caffe_experiments/AWS_FRESH_RUN/models/bvlc_googlenet.caffemodel -gpu all &> caffe.log
+caffe train -solver solver.prototxt -weights /home/plucas/projects/TCC/plantvillage_deeplearning_paper_analysis/googLeNet/color-80-20/finetune/bvlc_googlenet.caffemodel -gpu all &> caffe.log
 sbatch test.sh
 echo FINISHED at `date`
 
