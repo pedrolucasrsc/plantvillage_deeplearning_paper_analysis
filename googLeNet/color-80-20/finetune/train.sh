@@ -12,11 +12,11 @@
 
 
 
-module add caffe
-module add cuda
+# module add caffe
+# module add cuda
 echo STARTING AT `date`
 
-caffe train -solver solver.prototxt -weights /home/plucas/projects/TCC/plantvillage_deeplearning_paper_analysis/googLeNet/color-80-20/finetune/bvlc_googlenet.caffemodel -gpu all &> caffe.log
-sbatch test.sh
+sudo docker run --rm --runtime=nvidia -v $(pwd):$(pwd) -u $(id -u):$(id -g) -w $(pwd) --gpus all -ti bvlc/caffe:gpu caffe train -solver ./solver.prototxt -weights /home/plucas/projects/TCC/plantvillage_deeplearning_paper_analysis/googLeNet/color-80-20/finetune/bvlc_googlenet.caffemodel -gpu all &> caffe.log
+# sbatch test.sh
 echo FINISHED at `date`
 
