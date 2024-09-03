@@ -8,5 +8,5 @@ WORKDIR /TCC
 COPY . .
 RUN chmod +x scripts/install_requirements.sh
 RUN bash scripts/install_requirements.sh
-#RUN chmod +x entrypoint.sh
-#CMD ["./entrypoint.sh"]
+RUN chmod +x entrypoint.sh
+CMD ["./entrypoint.sh"]

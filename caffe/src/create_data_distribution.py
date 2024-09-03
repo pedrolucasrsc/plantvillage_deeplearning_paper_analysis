@@ -59,7 +59,6 @@ def distribute_buckets(BUCKETS, train_probability):
 			test += bucket	
 	return train, test	
 
-
 for data_type in glob.glob(INPUT_FOLDER +"/*"):
 	
 	data_type_name = data_type.split("/")[-1]	
@@ -95,6 +94,9 @@ for data_type in glob.glob(INPUT_FOLDER +"/*"):
 			test_dist =  compute_per_class_distribution(test) 
 			spread_data = []
 			for _key in train_dist:
+				if _key not in test_dist:
+					print "Missing key in test distribution: ", _key
+					continue
 				#print _key, train_dist[_key] * 1.0 /(train_dist[_key]+test_dist[_key])
 				spread_data.append(train_dist[_key] * 1.0 /(train_dist[_key]+test_dist[_key]))
 
@@ -113,6 +115,9 @@ for data_type in glob.glob(INPUT_FOLDER +"/*"):
 		test_dist =  compute_per_class_distribution(test)
 		spread_data = []
 		for _key in train_dist:
+			if _key not in test_dist:
+				print "Missing key in test distribution: ", _key
+				continue
 			print _key, train_dist[_key] * 1.0 /(train_dist[_key]+test_dist[_key])
 			spread_data.append(train_dist[_key] * 1.0 /(train_dist[_key]+test_dist[_key]))
 
