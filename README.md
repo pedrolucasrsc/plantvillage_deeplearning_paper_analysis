@@ -2,7 +2,7 @@
 
 This repository contains the code and results in context of the paper titled **Using Deep Learning for Image-Based Plant Disease Detection**
 
-####Organisation of code
+#### Organization of code
 The code for all the experiment configurations is arranged in directory structures across three different levels.
 
 The first level is based on the choice of Deep Neural Network Architecture, which is divided into :
@@ -36,7 +36,7 @@ And finally, inside each of these folders, the third layer is based on the choic
 
 All of these configurations lead to a total of **60** different experiment configurations.
 
-#####Structure of a single experiment configuration directory
+##### Structure of a single experiment configuration directory
 
 Every exeperiment configuration directory, contains the following files and folders, which are as follows :
 
@@ -62,7 +62,7 @@ Every exeperiment configuration directory, contains the following files and fold
     - `parsed_caffe_output`: Folder containing the parsed caffe logs, and generated evaluation log.
     
     
-#####Other considerations
+##### Other considerations
 The scripts `train.sh`, `test.sh` and `generate_results.sh` were designed to run on our cluster, hence have some cluster specific code in them. 
 So lines which look like :
 ```
@@ -78,8 +78,8 @@ The easiest would be create the corresponding folder at :
 
 
 
-###Workflow
-####Training
+### Workflow
+#### Training
 ```
 cd <path_to_experiment_config_directory>
 
@@ -104,5 +104,13 @@ cd <path_to_experiment_config_directory>
 S.P. Mohanty {<spmohanty91@gmail.com>, <sharada.mohanty@epfl.ch>}
 
 
+### Revisted Workflow:
 
+1. Instalar Docker
+2. Instalar Nvidia Container-Toolkit
+3. Baixar dados do PlantiVillage.
+4. Colocar esses dados no diretório plantvillage_deeplearning_paper_analysis/caffe/data/raw
+5. Rodar o Script run_docker.sh
+6. O treinamento irá iniciar
+7. Após o final do treinamento, os dados serão salvos em: plantvillage_deeplearning_paper_analysis/caffe/train_results
 

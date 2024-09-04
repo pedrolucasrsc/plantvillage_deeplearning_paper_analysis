@@ -7,6 +7,6 @@ bash generate_data_color-80-20.sh
 
 #cd ../
 #caffe train \
-#    -solver train/solver.prototxt \
+#    -solver train/test_setup_solver.prototxt \
 #    -weights train/bvlc_googlenet.caffemodel \
 #    -gpu all &> caffe.log
