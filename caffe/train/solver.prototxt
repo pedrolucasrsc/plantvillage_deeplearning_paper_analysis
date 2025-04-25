@@ -9,7 +9,7 @@ momentum: 0.9
 weight_decay: 0.0005
 stepsize: 18232
 snapshot: 1823
-snapshot_prefix: "/home/plucas/projects/TCC/plantvillage_deeplearning_paper_analysis/googLeNet/color-80-20/finetune/snapshots"
-solver_mode: GPU
-net: "train_val.prototxt"
+snapshot_prefix: "/TCC/train_results/snapshots"
+solver_mode: CPU
+net: "/TCC/train/train_val.prototxt"
 solver_type: SGD

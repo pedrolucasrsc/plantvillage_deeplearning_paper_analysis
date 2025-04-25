@@ -49,3 +49,10 @@ cd ../
 caffe train \
     -solver train/test_setup_solver.prototxt \
     -weights train/bvlc_googlenet.caffemodel
+#&> caffe.log
+
+echo "➡️  Starting inference on IPM_dataset..."
+
+# Run the inference
+cd scripts
+bash infer_ipm_dataset.sh
