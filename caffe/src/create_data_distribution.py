@@ -13,8 +13,6 @@ leaf_map = json.loads(open("leaf-map.json", "r").read())
 INPUT_FOLDER = "../data/raw"
 OUTPUT_FOLDER = "../data/lmdb"
 
-TRAIN_PERCENT = 80
-
 
 def determine_leaf_group(leaf_identifier, className):
 	global leaf_map
@@ -62,7 +60,10 @@ def distribute_buckets(BUCKETS, train_probability):
 for data_type in glob.glob(INPUT_FOLDER +"/*"):
 	
 	data_type_name = data_type.split("/")[-1]	
-	print data_type_name
+	if data_type_name == "IPM_dataset":
+            print("[INFO] Skipping {} (inference-only dataset)".format(data_type_name))
+            continue
+        print data_type_name
 
 	BUCKETS = {}
 	all_images = glob.glob(data_type+"/*/*")
@@ -82,7 +83,7 @@ for data_type in glob.glob(INPUT_FOLDER +"/*"):
 		except:
 			BUCKETS[group] = [(_img, className)]
 	
-	train_probs = [0.2, 0.4, 0.5, 0.6, 0.8]
+	train_probs = [0.8]
 	for train_prob in train_probs:	
 		CANDIDATE_DISTRIBUTIONS = []
 		CANDIDATE_VARIANCES = []

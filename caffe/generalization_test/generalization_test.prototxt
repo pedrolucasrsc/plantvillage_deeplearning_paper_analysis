@@ -1,0 +1,19 @@
+layer {
+  name: "data"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    mirror: false
+    crop_size: 224
+    mean_file: "/TCC/data/lmdb/color-80-20/mean.binaryproto"  # from training!
+  }
+  data_param {
+    source: "/TCC/data/lmdb/external_test_db"
+    batch_size: 24
+    backend: LMDB
+  }
+}

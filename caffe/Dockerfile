@@ -1,12 +1,17 @@
-# Pega a imagem que tem caffe instalado
-# Copia diretorio atual para dentro do container
-# Instala dependencias
-# Executa o script que faz o setup de dados
-
-FROM bvlc/caffe:gpu
+FROM bvlc/caffe:cpu
 WORKDIR /TCC
-COPY . .
-RUN chmod +x scripts/install_requirements.sh
-RUN bash scripts/install_requirements.sh
-RUN chmod +x /TCC/entrypoint.sh
-#CMD ["bash", "/TCC/entrypoint.sh"]
+
+# ----------------------------------------------------------------- requirements
+COPY scripts/install_requirements.sh ./install_requirements.sh
+RUN bash install_requirements.sh && rm install_requirements.sh
+
+# ----------------------------------------------------------------- project code
+COPY src                 src
+COPY scripts             scripts
+COPY train               train
+COPY generalization_test generalization_test
+COPY entrypoint.sh       entrypoint.sh
+RUN chmod +x entrypoint.sh
+
+CMD ["bash","/TCC/entrypoint.sh"]
+

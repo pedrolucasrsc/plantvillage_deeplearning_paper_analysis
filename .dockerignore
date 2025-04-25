@@ -1,0 +1,7 @@
+# Do not bake the raw images / LMDBs into the image
+caffe/data/raw
+caffe/data/lmdb
+# Byte-code / cache
+__pycache__
+*.pyc
+

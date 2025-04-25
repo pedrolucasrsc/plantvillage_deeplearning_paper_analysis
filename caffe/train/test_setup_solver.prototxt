@@ -10,6 +10,6 @@ weight_decay: 0.0005
 stepsize: 18232
 snapshot: 1  # Save snapshot after 1 iteration
 snapshot_prefix: "/TCC/train_results/snapshots"
-solver_mode: GPU
-net: "train_val.prototxt"
+solver_mode: CPU
+net: "/TCC/train/train_val.prototxt"
 solver_type: SGD

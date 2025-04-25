@@ -1,0 +1,15 @@
+I0425 17:38:57.074643     7 upgrade_proto.cpp:1082] Attempting to upgrade input file specified using deprecated 'solver_type' field (enum)': train/test_setup_solver.prototxt
+I0425 17:38:57.075016     7 upgrade_proto.cpp:1089] Successfully upgraded file specified using deprecated 'solver_type' field (enum) to 'type' field (string).
+W0425 17:38:57.075024     7 upgrade_proto.cpp:1091] Note that future Caffe releases will only support 'type' field (string) for a solver's type.
+F0425 17:38:57.100287     7 caffe.cpp:93] Check failed: error == cudaSuccess (35 vs. 0)  CUDA driver version is insufficient for CUDA runtime version
+*** Check failure stack trace: ***
+    @     0x7fc8040c65cd  google::LogMessage::Fail()
+    @     0x7fc8040c8433  google::LogMessage::SendToLog()
+    @     0x7fc8040c615b  google::LogMessage::Flush()
+    @     0x7fc8040c8e1e  google::LogMessageFatal::~LogMessageFatal()
+    @           0x40cf52  get_gpus()
+    @           0x40e5e1  train()
+    @           0x40b8a3  main
+    @     0x7fc802db2830  __libc_start_main
+    @           0x40c249  _start
+    @              (nil)  (unknown)
